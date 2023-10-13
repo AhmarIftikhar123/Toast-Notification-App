@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(120deg, lightgray, #000);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+main {
+  padding: 4rem 0 0 2rem;
+}
+
+/* btn_design */
+
+.btn_box {
+  display: flex;
+  gap: 0.5rem;
+}
+.btn_box button{
+  font-size: 1.3rem;
+  font-weight: bolder;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn_box button:hover{
+    outline: 1px solid lightgray;
+}
+
+.btn_box button:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* toast_styles */
+
+.toast_box {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 1rem;
+}
+
+.toast {
+  margin-top: 0.5rem;
+  background-color: #fff;
+  padding: 0.7rem 0.5rem;
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  position: relative;
+  overflow: hidden;
+  transform: translateX(100%);
+  box-shadow: 2px 0px 5px lightgray;
+  animation: anime .5s linear 1 forwards ;
+}
+
+/* toast animation */
+
+@keyframes anime {
+    100%{
+  transform: translateX(0);
+    }
+}
+
+.toast span {
+  font-size: 1.1rem;
+  font-weight: bolder;
+}
+
+/* pseudo class animation */
+
+div.toast::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: .5rem;
+  z-index: -1;
+  animation: progress_bar 2s linear forwards 1;
+}
+
+@keyframes progress_bar {
+    100%{
+    width: 0;
+    }
+}
+
+.toast.success i {
+  color: green;
+}
+
+.success::after {
+  background-color: green;
+}
+
+.toast.error i {
+  color: red;
+}
+
+.toast.error::after {
+  background-color: red;
+}
+
+.invalid i {
+  color: orange;
+}
+
+.toast.invalid::after {
+  background-color: orange;
+}
